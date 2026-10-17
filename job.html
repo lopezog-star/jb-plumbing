@@ -107,15 +107,16 @@
         <input type="date" name="date" required>
 
         <label>Exact Service</label>
-        <select name="service" required>
-            <option value="">Select a service...</option>
-            <option>Leak Repair</option>
-            <option>Water Heater Installation</option>
-            <option>Drain Cleaning</option>
-            <option>Pipe Replacement</option>
-            <option>Fixture Installation</option>
-            <option>Emergency Service</option>
-        </select>
+        <label>Exact Service</label>
+
+        <div style="margin-top:10px;">
+    <label><input type="checkbox" name="service" value="Leak Repair"> Leak Repair</label><br>
+    <label><input type="checkbox" name="service" value="Water Heater Installation"> Water Heater Installation</label><br>
+    <label><input type="checkbox" name="service" value="Drain Cleaning"> Drain Cleaning</label><br>
+    <label><input type="checkbox" name="service" value="Pipe Replacement"> Pipe Replacement</label><br>
+    <label><input type="checkbox" name="service" value="Fixture Installation"> Fixture Installation</label><br>
+    <label><input type="checkbox" name="service" value="Emergency Service"> Emergency Service</label>
+</div>
 
         <label>Team Member</label>
         <select name="tech" required>
