@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J & B Plumbing</title>
+
+    <!-- Professional Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Wayfarer:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #9BA3A8; /* NEW PAGE BACKGROUND */
+            color: #222;
+        }
+
+        header {
+            background: #0a4d8c;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        nav {
+            background: #083b6b;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        /* Motion */
+        .fade {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* HERO */
+        .hero {
+            background: url('https://image.shutterstock.com/image-photo/close-up-repairman-uniform-shaking-260nw-1938406275.jpg')
+                        no-repeat center center/cover;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: none;
+        }
+
+        .section {
+            width: 80%;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        .image-block {
+            width: 100%;
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            margin-top: 25px;
+        }
+
+        /* STAR RATING */
+        .stars {
+            font-size: 2rem;
+            color: gold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px; /* GAP REDUCED */
+        }
+
+        .half-star {
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(to right, gold 50%, #ccc 50%);
+            display: inline-block;
+            clip-path: polygon(
+                50% 0%, 61% 35%, 98% 35%, 
+                68% 57%, 79% 91%, 50% 70%, 
+                21% 91%, 32% 57%, 2% 35%, 
+                39% 35%
+            );
+        }
+
+        .rating-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: black;
+        }
+
+        .check-line {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .check-line span {
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+
+        .twentyfour-line {
+            font-size: 1.3rem;
+            margin-top: 15px;
+            font-weight: 600;
+        }
+
+        .twentyfour-line span {
+            font-size: 1.8rem;
+            font-weight: 900;
+        }
+
+        footer {
+            background: #083b6b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="fade">
+    <h1 style="font-family: 'Wayfarer', serif;
+               font-size: 4rem;
+               font-weight: 700;
+               letter-spacing: 4px;
+               margin: 0;">
+        J & B Plumbing
+    </h1>
+
+    <p class="fade"
+       style="font-family: 'Lora', serif;
+              font-size: 1.3rem;
+              font-weight: 400;
+              letter-spacing: 0.5px;
+              margin-top: 10px;">
+        Professional Service. Honest Work.
+    </p>
+</header>
+
+<nav class="fade">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero fade" style="font-family: 'Alex Brush', cursive; font-size: 5rem; text-align: center;">
+    Trusted Plumbing Professionals
+</div>
+
+<div class="section fade" id="about">
+    <h2>About Us</h2>
+    <p>
+        J & B Plumbing provides reliable, high‑quality plumbing services backed by years of experience.
+        Our team focuses on clear communication, professional workmanship, and customer satisfaction.
+        J & B Plumbing is proud to serve Parker with honest work and dependable service you can count on.
+        Because we only advertise locally, every job matters — our reputation is built directly through the neighbors we help every day.
+    </p>
+
+    <img src="https://storage.googleapis.com/content-assistant-images-persistent/homeowner-shaking-hands-with-a-plumber-illustrating-customer-satisfaction-and-trust-in-plumbing-services-e2213bd4-7465-4e80-aa05-d687ad4165de.webp"
+         alt="Plumber_shaking_hands_with_customer"
+         style="width:100%; border-radius:12px;">
+
+    <div class="image-block"
+         style="background-image: url('https://image.shutterstock.com/image-photo/man-plumber-talking-female-client-260nw-1938406269.jpg');">
+    </div>
+</div>
+
+<!-- SERVICES SECTION -->
+<div class="section fade" id="services">
+    <h2>Services</h2>
+    <p>
+        We offer full‑service residential and commercial plumbing, including leak repair, water heater installation,
+        fixture replacement, and full system inspections.
+    </p>
+
+    <!-- REMOVED IMAGE (per your request) -->
+
+    <!-- REVERSED ORDER: 4.5 FIRST, THEN STARS -->
+    <div class="stars">
+        <span class="rating-number">4.5</span>
+        ★ ★ ★ ★ <div class="half-star"></div>
+    </div>
+
+    <!-- CHECK MARK LINE -->
+    <div class="check-line">
+        <span>✔</span> same-day service, even on weekends.
+    </div>
+
+    <!-- 24H LINE -->
+    <div class="twentyfour-line">
+        <span>24H</span> serving you 24 hours out of the day
+    </div>
+</div>
+
+<!-- CONTACT SECTION -->
+<div class="section fade" id="contact">
+    <h2>Contact</h2>
+    <p><strong>Phone:</strong> (555) 123‑4567</p>
+    <p><strong>Email:</strong> contact@jbplumbing.com</p>
+    <p><strong>Office Hours:</strong> Mon–Sat, 8 AM – 6 PM</p>
+</div>
+
+<footer class="fade">
+    © 2026 J & B Plumbing — All Rights Reserved
+</footer>
+
+<!-- ALWAYS START AT TOP -->
+<script>
+    window.history.scrollRestoration = "manual";
+    window.onload = function() {
+        window.scrollTo(0, 0);
+    };
+</script>
+
+</body>
+</html>
