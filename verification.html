@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Account – J & B Plumbing</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background: #9BA3A8;
+            color: #222;
+        }
+
+        header {
+            background: #0a4d8c;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section {
+            width: 80%;
+            margin: 40px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.08);
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .small-btn {
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #0a4d8c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        .small-btn:hover {
+            background: #083b6b;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Verify Your Account</h1>
+</header>
+
+<div class="section">
+    <h2>Choose Verification Method</h2>
+
+    <!-- Choose SMS or Email -->
+    <select id="methodSelect">
+        <option value="sms">Send code through SMS</option>
+        <option value="email">Send code through Email</option>
+    </select>
+
+    <!-- Code input -->
+    <label style="margin-top:20px; display:block;">Enter Verification Code</label>
+    <input type="text" placeholder="123456">
+
+    <!-- Buttons -->
+    <button class="small-btn">Resend Code</button>
+
+    <button class="small-btn" id="switchMethodBtn">Send through Email</button>
+</div>
+
+<script>
+    const methodSelect = document.getElementById("methodSelect");
+    const switchBtn = document.getElementById("switchMethodBtn");
+
+    function updateSwitchButton() {
+        if (methodSelect.value === "sms") {
+            switchBtn.textContent = "Send through Email";
+        } else {
+            switchBtn.textContent = "Send through SMS";
+        }
+    }
+
+    methodSelect.addEventListener("change", updateSwitchButton);
+
+    // Set initial button text
+    updateSwitchButton();
+</script>
+
+</body>
+</html>
