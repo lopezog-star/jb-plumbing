@@ -120,6 +120,19 @@ function createAccount() {
 
     window.location.href = "verification.html";
 }
+</script><script>
+function createAccount() {
+    const firstName =
+        document.getElementById("firstName").value;
+
+    const lastName =
+        document.getElementById("lastName").value;
+
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
+
+    window.location.href = "verification.html";
+}
 </script>
 </body>
 </html>
