@@ -6,7 +6,6 @@
     <title>Sign In – J & B Plumbing</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         body {
@@ -36,7 +35,6 @@
         label {
             display: block;
             margin-top: 15px;
-            font-weight: 500;
         }
 
         input {
@@ -45,7 +43,6 @@
             margin-top: 10px;
             border-radius: 8px;
             border: 1px solid #ccc;
-            font-size: 16px;
             box-sizing: border-box;
         }
 
@@ -53,26 +50,16 @@
             display: inline-block;
             margin-top: 25px;
             padding: 12px 28px;
-            background: red;
+            background: #0a4d8c;
             color: white;
             border: none;
             border-radius: 8px;
-            font-size: 18px;
             cursor: pointer;
-            transition: 0.3s;
-            text-decoration: none;
-        }
-
-        .submit-btn:hover {
-            background: #083b6b;
         }
 
         .signup-btn {
             background: #666;
-        }
-
-        .signup-btn:hover {
-            background: #444;
+            text-decoration: none;
         }
 
         .btn-container {
@@ -90,22 +77,31 @@
 <div class="section">
     <h2>Account Login</h2>
 
-    <label for="email">Email</label>
+    <label>Email</label>
     <input id="email" type="email" placeholder="you@example.com">
 
-    <label for="password">Password</label>
+    <label>Password</label>
     <input id="password" type="password" placeholder="Enter your password">
 
     <div class="btn-container">
-        <button class="submit-btn">Sign In</button>
+        <button class="submit-btn" onclick="signIn()">
+            Sign In
+        </button>
 
-        <br>
+        <br><br>
 
         <a href="signup.html" class="submit-btn signup-btn">
             Create Account
         </a>
     </div>
 </div>
+
+<script>
+function signIn() {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "index.html";
+}
+</script>
 
 </body>
 </html>
