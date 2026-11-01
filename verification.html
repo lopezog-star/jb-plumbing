@@ -84,11 +84,18 @@
     <button class="small-btn">Resend Code</button>
 
     <button class="small-btn" id="switchMethodBtn">Send through Email</button>
+    <button class="small-btn" onclick="verifyAccount()">
+    Verify
+</button>
 </div>
 
 <script>
     const methodSelect = document.getElementById("methodSelect");
     const switchBtn = document.getElementById("switchMethodBtn");
+    function verifyAccount() {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "index.html";
+}
 
     function updateSwitchButton() {
         if (methodSelect.value === "sms") {
