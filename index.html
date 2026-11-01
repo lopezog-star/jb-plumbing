@@ -171,6 +171,40 @@
     text-decoration: underline;
     transition: 0.3s;
 }
+		.account-menu{
+position:fixed;
+top:0;
+right:-260px;
+width:250px;
+height:100%;
+background:white;
+box-shadow:-4px 0 15px rgba(0,0,0,.15);
+transition:.3s;
+z-index:2000;
+padding-top:80px;
+}
+ 
+.account-menu.active{
+right:0;
+}
+ 
+.account-menu a{
+display:block;
+padding:18px 25px;
+color:#555;
+text-decoration:none;
+border-bottom:1px solid #eee;
+font-size:18px;
+}
+ 
+.account-menu a:hover{
+background:#f7f7f7;
+}
+ 
+.signout-btn{
+color:red !important;
+font-weight:700;
+}
 
     </style>
 </head>
@@ -188,8 +222,12 @@
 	<div id="userDisplay"
    <div id="userDisplay"
      style="position:absolute; top:20px; right:20px;">
+		
     <a href="signin.html"
-       style="color:white; font-weight:600; font-size:1.1rem; text-decoration:none;">
+       style="color:white; 
+		font-weight:600; 
+		font-size:1.1rem; 
+		text-decoration:none;">
        Sign In
     </a>
 </div>
@@ -283,8 +321,52 @@
     };
 </script>
 <script>
+
 const firstName = localStorage.getItem("firstName");
 const lastName = localStorage.getItem("lastName");
+const loggedIn = localStorage.getItem("loggedIn");
+
+if (
+    loggedIn === "true" &&
+    firstName &&
+    lastName
+) {
+
+document.getElementById("userDisplay").innerHTML =
+
+`<a href="#"
+onclick="toggleMenu()"
+style="
+color:white;
+font-weight:600;
+font-size:1.1rem;
+text-decoration:none;
+cursor:pointer;
+">
+
+${firstName} ${lastName.charAt(0).toUpperCase()}.
+
+</a>`;
+
+}
+
+function toggleMenu(){
+
+document
+.getElementById("accountMenu")
+.classList.toggle("active");
+
+}
+
+function signOut(){
+
+localStorage.removeItem("loggedIn");
+
+window.location.href = "index.html";
+
+}
+
+</script>
 
 if (firstName && lastName) {
     document.getElementById("userDisplay").innerHTML =
@@ -386,5 +468,22 @@ window.location.href="index.html";
 
 }
 </script>
+	<div id="accountMenu" class="account-menu">
+
+    <a href="profile.html">
+        Profile
+    </a>
+
+    <a href="reviews.html">
+        Reviews
+    </a>
+
+    <a href="#"
+       onclick="signOut()"
+       class="signout-btn">
+
+        Sign Out
+
+    </a>
 </body>
 </html>
