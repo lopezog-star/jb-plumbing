@@ -81,8 +81,11 @@
 <div class="section">
     <h2>Sign Up</h2>
 
-    <label>Full Name</label>
-    <input type="text" placeholder="John Doe">
+    <label>First Name</label>
+<input id="firstName" type="text" placeholder="John">
+
+<label>Last Name</label>
+<input id="lastName" type="text" placeholder="Doe">
 
     <label>Email</label>
     <input type="email" placeholder="you@example.com">
@@ -93,8 +96,9 @@
     <label>Password</label>
     <input type="password" placeholder="Create a password">
 
-    <button class="submit-btn" onclick="window.location.href='index.html'">
+    <button class="submit-btn" onclick="createAccount()">
     Create Account
+    </button>
 </button>
     <div style="text-align:center; margin-top:20px; font-size:1.1rem;">
     <a href="verification.html" style="color:#0a4d8c; font-weight:600; text-decoration:none;">
@@ -106,6 +110,16 @@
         <a href="signin.html">Already have an account? Sign in</a>
     </div>
 </div>
+<script>
+function createAccount() {
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
 
+    localStorage.setItem("firstName", firstName);
+    localStorage.setItem("lastName", lastName);
+
+    window.location.href = "verification.html";
+}
+</script>
 </body>
 </html>
