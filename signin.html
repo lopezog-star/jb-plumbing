@@ -84,10 +84,9 @@
     <input id="password" type="password" placeholder="Enter your password">
 
     <div class="btn-container">
-        <button class="submit-btn" onclick="signIn()">
-            Sign In
-        </button>
-
+       <button class="submit-btn" onclick="signIn()">
+    Sign In
+</button>
         <br><br>
 
         <a href="signup.html" class="submit-btn signup-btn">
@@ -102,6 +101,12 @@ function signIn() {
     window.location.href = "index.html";
 }
 </script>
-
+<script>
+function signIn() {
+    localStorage.setItem("loggedIn", "true");
+    window.location.href = "index.html";
+}
+</script>
+    
 </body>
 </html>
