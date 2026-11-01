@@ -88,10 +88,10 @@
 <input id="lastName" type="text" placeholder="Doe">
 
     <label>Email</label>
-    <input type="email" placeholder="you@example.com">
+    <input id="email" type="email" placeholder="you@example.com">
 
     <label>Phone Number</label>
-    <input type="tel" placeholder="(555) 123‑4567">
+    <input id="phone" type="tel" placeholder="(555) 123‑4567">
 
     <label>Password</label>
     <input type="password" placeholder="Create a password">
@@ -112,24 +112,28 @@
 </div>
 <script>
 function createAccount() {
-    const firstName = document.getElementById("firstName").value;
-    const lastName = document.getElementById("lastName").value;
 
-    localStorage.setItem("firstName", firstName);
-    localStorage.setItem("lastName", lastName);
-
-    window.location.href = "verification.html";
-}
-</script><script>
-function createAccount() {
     const firstName =
         document.getElementById("firstName").value;
 
     const lastName =
         document.getElementById("lastName").value;
 
+    const email =
+        document.getElementById("email").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
     localStorage.setItem("firstName", firstName);
     localStorage.setItem("lastName", lastName);
+    localStorage.setItem("email", email);
+    localStorage.setItem("phone", phone);
+
+    localStorage.setItem(
+        "joinDate",
+        Date.now()
+    );
 
     window.location.href = "verification.html";
 }
