@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Reviews - J & B Plumbing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    background:#9BA3A8;
+    font-family:'Montserrat',sans-serif;
+}
+
+header{
+    background:#0a4d8c;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+.container{
+    width:80%;
+    margin:40px auto;
+}
+
+.review{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 0 15px rgba(0,0,0,.08);
+}
+
+.stars{
+    font-size:28px;
+    color:gold;
+    margin-bottom:10px;
+}
+
+.reviewer{
+    font-weight:700;
+    margin-top:15px;
+}
+
+.leave-review-btn{
+    width:100%;
+    padding:25px;
+    background:#0a4d8c;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:24px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.leave-review-btn:hover{
+    background:#083b6b;
+}
+
+.review-form{
+    display:none;
+    background:white;
+    margin-top:25px;
+    padding:30px;
+    border-radius:12px;
+}
+
+.review-form input{
+    width:100%;
+    padding:12px;
+    box-sizing:border-box;
+    margin-bottom:15px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.review-form textarea{
+    width:100%;
+    height:180px;
+    padding:12px;
+    box-sizing:border-box;
+    border-radius:8px;
+    border:1px solid #ccc;
+    resize:vertical;
+}
+
+.rating-stars{
+    margin-bottom:20px;
+}
+
+.rating-stars span{
+    font-size:50px;
+    color:gray;
+    cursor:pointer;
+}
+
+.submit-btn{
+    margin-top:20px;
+    padding:12px 28px;
+    border:none;
+    border-radius:8px;
+    background:#0a4d8c;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#083b6b;
+}
+
+.back-btn{
+    display:inline-block;
+    margin-top:20px;
+    color:white;
+    text-decoration:none;
+    border:2px solid white;
+    padding:10px 20px;
+    border-radius:8px;
+}
+
+.back-btn:hover{
+    background:white;
+    color:#0a4d8c;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>Customer Reviews</h1>
+
+<p>
+See what our customers have to say about J & B Plumbing.
+</p>
+
+<a href="index.html" class="back-btn">
+← Back Home
+</a>
+
+</header>
+
+<div class="container">
+
+<div class="review">
+<div class="stars">★★★★★</div>
+
+<h3>Outstanding Service</h3>
+
+<p>
+The technician arrived on time, explained everything clearly,
+and fixed our leak within an hour.
+</p>
+
+<div class="reviewer">
+- Michael R.
+</div>
+
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+
+<h3>Very Professional</h3>
+
+<p>
+Fair pricing, respectful technicians,
+and the repair has worked perfectly ever since.
+</p>
+
+<div class="reviewer">
+- Sarah M.
+</div>
+
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+
+<h3>Fast Response</h3>
+
+<p>
+Our water heater quit unexpectedly.
+J & B Plumbing came the same day and solved the problem.
+</p>
+
+<div class="reviewer">
+- Robert T.
+</div>
+
+</div>
+
+<div class="review">
+<div class="stars">★★★★☆</div>
+
+<h3>Great Communication</h3>
+
+<p>
+Kept us informed throughout the entire repair process.
+</p>
+
+<div class="reviewer">
+- Amanda C.
+</div>
+
+</div>
+
+<div class="review">
+<div class="stars">★★★★★</div>
+
+<h3>Will Definitely Use Again</h3>
+
+<p>
+Excellent service from start to finish.
+Highly recommended.
+</p>
+
+<div class="reviewer">
+- Daniel P.
+</div>
+
+</div>
+
+<button
+class="leave-review-btn"
+onclick="toggleReviewForm()">
+
+Leave a Review
+
+</button>
+
+<div id="reviewForm" class="review-form">
+
+<h2>Leave Your Review</h2>
+
+<div class="rating-stars">
+
+<span onclick="setRating(1)">★</span>
+<span onclick="setRating(2)">★</span>
+<span onclick="setRating(3)">★</span>
+<span onclick="setRating(4)">★</span>
+<span onclick="setRating(5)">★</span>
+
+</div>
+
+<input
+type="text"
+placeholder="Review Title">
+
+<textarea
+placeholder="Tell us about your experience with J & B Plumbing">
+</textarea>
+
+<br>
+
+<button class="submit-btn">
+Submit Review
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let selectedRating = 0;
+
+function toggleReviewForm(){
+
+const form =
+document.getElementById("reviewForm");
+
+if(form.style.display === "block"){
+
+form.style.display = "none";
+
+}else{
+
+form.style.display = "block";
+
+}
+
+}
+
+function setRating(rating){
+
+selectedRating = rating;
+
+const stars =
+document.querySelectorAll(".rating-stars span");
+
+stars.forEach((star,index)=>{
+
+if(index < rating){
+
+star.style.color = "gold";
+
+}else{
+
+star.style.color = "gray";
+
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

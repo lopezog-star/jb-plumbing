@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profile - J & B Plumbing</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    margin:0;
+    font-family:'Montserrat',sans-serif;
+    background:#9BA3A8;
+}
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:250px;
+    height:100%;
+    background:#083b6b;
+}
+
+.sidebar h2{
+    color:white;
+    text-align:center;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+
+.sidebar a{
+    display:block;
+    padding:18px 25px;
+    text-decoration:none;
+    color:white;
+    transition:.3s;
+}
+
+.sidebar a:hover{
+    background:#0a4d8c;
+}
+
+.content{
+    margin-left:270px;
+    padding:40px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 0 15px rgba(0,0,0,.1);
+}
+
+.hidden-section{
+    display:none;
+}
+
+.active-section{
+    display:block;
+}
+
+.info-box{
+    margin-bottom:20px;
+    font-size:18px;
+}
+
+.edit-row{
+    margin-bottom:25px;
+}
+
+.edit-row label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+}
+
+.edit-row input{
+    width:300px;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+.edit-btn{
+    margin-left:10px;
+    padding:12px 18px;
+    background:#0a4d8c;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.edit-btn:hover{
+    background:#083b6b;
+}
+
+.help-box{
+    font-size:18px;
+    line-height:1.8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>My Profile</h2>
+
+    <a href="#" onclick="showSection('profileInfo')">
+        Profile Information
+    </a>
+
+    <a href="#" onclick="showSection('editProfile')">
+        Edit Profile
+    </a>
+
+    <a href="#" onclick="showSection('profileHelp')">
+        Profile Help
+    </a>
+
+    <a href="index.html">
+        ← Back Home
+    </a>
+
+</div>
+
+<div class="content">
+
+<!-- PROFILE INFORMATION -->
+
+<div id="profileInfo" class="card active-section">
+
+    <h1>Profile Information</h1>
+
+    <div class="info-box">
+        <strong>Name:</strong>
+        <span id="displayName"></span>
+    </div>
+
+    <div class="info-box">
+        <strong>Email:</strong>
+        <span id="displayEmail"></span>
+    </div>
+
+    <div class="info-box">
+        <strong>Phone:</strong>
+        <span id="displayPhone"></span>
+    </div>
+
+    <div class="info-box">
+        <strong id="joinedAgo"></strong>
+    </div>
+
+</div>
+
+<!-- EDIT PROFILE -->
+
+<div id="editProfile" class="card hidden-section">
+
+    <h1>Edit Profile</h1>
+
+    <div class="edit-row">
+        <label>First Name</label>
+
+        <input id="editFirstName" placeholder="New First Name">
+
+        <button class="edit-btn"
+                onclick="editFirstName()">
+            Save
+        </button>
+    </div>
+
+    <div class="edit-row">
+        <label>Last Name</label>
+
+        <input id="editLastName" placeholder="New Last Name">
+
+        <button class="edit-btn"
+                onclick="editLastName()">
+            Save
+        </button>
+    </div>
+
+    <div class="edit-row">
+        <label>Email</label>
+
+        <input id="editEmail" placeholder="New Email">
+
+        <button class="edit-btn"
+                onclick="editEmail()">
+            Save
+        </button>
+    </div>
+
+    <div class="edit-row">
+        <label>Phone Number</label>
+
+        <input id="editPhone" placeholder="New Phone Number">
+
+        <button class="edit-btn"
+                onclick="editPhone()">
+            Save
+        </button>
+    </div>
+
+</div>
+
+<!-- HELP -->
+
+<div id="profileHelp" class="card hidden-section">
+
+    <h1>Profile Help</h1>
+
+    <div class="help-box">
+
+        <p>
+            For IT help text:
+            <strong>(720) 555-3841</strong>
+        </p>
+
+        <p>
+            Or email us at:
+            <strong>support@jbplumbinghelp.com</strong>
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+<script>
+
+function showSection(sectionId){
+
+    const sections = [
+        "profileInfo",
+        "editProfile",
+        "profileHelp"
+    ];
+
+    sections.forEach(section => {
+
+        document
+            .getElementById(section)
+            .classList.remove("active-section");
+
+        document
+            .getElementById(section)
+            .classList.add("hidden-section");
+
+    });
+
+    document
+        .getElementById(sectionId)
+        .classList.remove("hidden-section");
+
+    document
+        .getElementById(sectionId)
+        .classList.add("active-section");
+
+}
+
+const firstName =
+localStorage.getItem("firstName") || "";
+
+const lastName =
+localStorage.getItem("lastName") || "";
+
+const email =
+localStorage.getItem("email") || "";
+
+const phone =
+localStorage.getItem("phone") || "";
+
+document.getElementById("displayName").innerText =
+firstName + " " + lastName;
+
+document.getElementById("displayEmail").innerText =
+email;
+
+document.getElementById("displayPhone").innerText =
+phone;
+
+const joinDate =
+localStorage.getItem("joinDate");
+
+if(joinDate){
+
+    const diff =
+    Math.floor(
+        (Date.now() - joinDate) / 1000
+    );
+
+    let joinedText = "";
+
+    if(diff < 3600){
+
+        joinedText =
+        "Joined " +
+        Math.floor(diff/60) +
+        " minute(s) ago";
+
+    }
+
+    else if(diff < 86400){
+
+        joinedText =
+        "Joined " +
+        Math.floor(diff/3600) +
+        " hour(s) ago";
+
+    }
+
+    else{
+
+        joinedText =
+        "Joined " +
+        Math.floor(diff/86400) +
+        " day(s) ago";
+
+    }
+
+    document.getElementById("joinedAgo")
+    .innerText = joinedText;
+
+}
+
+function editFirstName(){
+
+    localStorage.setItem(
+        "firstName",
+        document.getElementById(
+            "editFirstName"
+        ).value
+    );
+
+    location.reload();
+
+}
+
+function editLastName(){
+
+    localStorage.setItem(
+        "lastName",
+        document.getElementById(
+            "editLastName"
+        ).value
+    );
+
+    location.reload();
+
+}
+
+function editEmail(){
+
+    localStorage.setItem(
+        "email",
+        document.getElementById(
+            "editEmail"
+        ).value
+    );
+
+    location.reload();
+
+}
+
+function editPhone(){
+
+    localStorage.setItem(
+        "phone",
+        document.getElementById(
+            "editPhone"
+        ).value
+    );
+
+    location.reload();
+
+}
+
+</script>
+
+</body>
+</html>
