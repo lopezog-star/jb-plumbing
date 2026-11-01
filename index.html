@@ -185,8 +185,9 @@
                margin: 0;">
         J & B Plumbing
     </h1>
-	<div style="position:absolute; top:20px; right:20px;">
-    <a href="signin.html" 
+	<div id="userDisplay"
+     style="position:absolute; top:20px; right:20px;">
+    <a href="signin.html"
        style="color:white; font-weight:600; font-size:1.1rem; text-decoration:none;">
        Sign In
     </a>
@@ -281,6 +282,17 @@
         window.scrollTo(0, 0);
     };
 </script>
+<script>
+const firstName = localStorage.getItem("firstName");
+const lastName = localStorage.getItem("lastName");
 
+if (firstName && lastName) {
+    document.getElementById("userDisplay").innerHTML =
+        '<span style="color:white; font-weight:600; font-size:1.1rem;">' +
+        firstName + ' ' +
+        lastName.charAt(0).toUpperCase() + '.' +
+        '</span>';
+}
+</script>
 </body>
 </html>
